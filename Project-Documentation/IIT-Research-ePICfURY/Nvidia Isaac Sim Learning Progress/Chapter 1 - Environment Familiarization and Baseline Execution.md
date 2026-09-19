@@ -1,11 +1,11 @@
 
 Mental model for how Isaac Lab is structured,
 
-Application - the whole studio, manages everything
-Simulation - the director, controls gravity and time steps
-World - the sound stage, the global coordinate system
-Stage - the film set, where all the assets sit in a tree
-Scene - the actors and props, one instance of the environment. for RL we clone this thousands of times in parallel
+**Application** - the whole studio, manages everything
+**Simulation** - the director, controls gravity and time steps
+**World** - the sound stage, the global coordinate system
+**Stage** - the film set (asset hierarchy)
+**Scene** - actors/props (one env instance, cloned thousands of times for parallel RL)
 
 Install is the usual, driver, Omniverse Launcher, Isaac Sim, clone IsaacLab repo, run `./isaaclab.sh --install`
 

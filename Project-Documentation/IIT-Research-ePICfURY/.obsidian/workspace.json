@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Nvidia Isaac Sim Learning Progress/Chapter 1 - Environment Familiarization and Baseline Execution.md",
-                "mode": "source",
+                "file": "Nvidia Isaac Sim Learning Progress/Chapter 3 - Anatomy of an Environment Configuration.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chapter 1 - Environment Familiarization and Baseline Execution"
+              "title": "Chapter 3 - Anatomy of an Environment Configuration"
             }
           }
         ],
@@ -233,10 +233,10 @@
   },
   "active": "d398d813085f99fc",
   "lastOpenFiles": [
-    "Nvidia Isaac Sim Learning Progress/Nvidia Isaac Sim Learning Progress.md",
-    "Nvidia Isaac Sim Learning Progress/Chapter 3 - Anatomy of an Environment Configuration.md",
     "Nvidia Isaac Sim Learning Progress/Chapter 2 - Project Scaffolding and Architectural Decisions.md",
     "Nvidia Isaac Sim Learning Progress/Chapter 1 - Environment Familiarization and Baseline Execution.md",
+    "Nvidia Isaac Sim Learning Progress/Nvidia Isaac Sim Learning Progress.md",
+    "Nvidia Isaac Sim Learning Progress/Chapter 3 - Anatomy of an Environment Configuration.md",
     "Nvidia Isaac Sim Learning Progress",
     "2026-09-19.md",
     "Untitled.base",
