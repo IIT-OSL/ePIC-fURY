@@ -1,0 +1,1 @@
+cd /home/root-daham/isaac-installations/IsaacLab && ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Velocity-Flat-Unitree-Go2-v0 --headless --seed 42 --max_iterations 20 --run_name smoke_seed42

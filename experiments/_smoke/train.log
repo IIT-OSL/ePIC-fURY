@@ -1,0 +1,867 @@
+[3gH    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H    H   [INFO] Using python from: /home/root-daham/miniconda3/envs/env_isaaclab/bin/python
+[INFO][AppLauncher]: Using device: cuda:0
+[INFO][AppLauncher]: Loading experience file: /home/root-daham/isaac-installations/IsaacLab/apps/isaaclab.python.headless.kit
+Loading user config located at: '/home/root-daham/miniconda3/envs/env_isaaclab/lib/python3.11/site-packages/isaacsim/kit/data/Kit/Isaac-Sim/5.1/user.config.json'
+[Info] [carb] Logging to file: /home/root-daham/miniconda3/envs/env_isaaclab/lib/python3.11/site-packages/isaacsim/kit/logs/Kit/Isaac-Sim/5.1/kit_20261120_092851.log
+2026-11-20T03:58:57Z [5,236ms] [Warning] [omni.usd_config.extension] Enable omni.materialx.libs extension to use MaterialX
+2026-11-20T03:59:01Z [9,596ms] [Warning] [omni.platforminfo.plugin] failed to open the default display.  Can't verify X Server version.
+2026-11-20T03:59:04Z [12,223ms] [Warning] [carb] Acquiring non optional plugin interface which is not listed as dependency: [omni::physx::IPhysxBenchmarks v1.0] (plugin: <default plugin>), by client: omni.physics.physx.plugin. Add it to CARB_PLUGIN_IMPL_DEPS() macro of a client.
+2026-11-20T03:59:04Z [12,410ms] [Warning] [omni.isaac.dynamic_control] omni.isaac.dynamic_control is deprecated as of Isaac Sim 4.5. No action is needed from end-users.
+2026-11-20T03:59:37Z [45,149ms] [Warning] [gpu.foundation.plugin] Skipping unsupported non-NVIDIA GPU: Intel(R) Graphics (RPL-S)
+2026-11-20T03:59:37Z [45,149ms] [Warning] [gpu.foundation.plugin] Skipping unsupported non-NVIDIA GPU: Intel(R) Graphics (RPL-S)
+
+|---------------------------------------------------------------------------------------------|
+| Driver Version: 580.173.02    | Graphics API: Vulkan
+|=============================================================================================|
+| GPU | Name                             | Active | LDA | GPU Memory | Vendor-ID | LUID       |
+|     |                                  |        |     |            | Device-ID | UUID       |
+|     |                                  |        |     |            | Bus-ID    |            |
+|---------------------------------------------------------------------------------------------|
+| 0   | NVIDIA GeForce RTX 5090          | Yes: 0 |     | 32607   MB | 10de      | 0          |
+|     |                                  |        |     |            | 2b85      | 9dff0668.. |
+|     |                                  |        |     |            | 1         |            |
+|---------------------------------------------------------------------------------------------|
+| 1   | Intel(R) Graphics (RPL-S)        |        |     | 47273   MB | 8086      | 0          |
+|     |                                  |        |     |            | a780      | 868080a7.. |
+|     |                                  |        |     |            | 0         |            |
+|=============================================================================================|
+| OS: 26.04 LTS (Resolute Raccoon) ubuntu, Version: 26.04.0, Kernel: 7.0.0-38-generic
+| Processor: Intel(R) Core(TM) i9-14900K
+| Bare Metal Cores: 23 | Bare Metal Logical Cores: 46
+| Available Cores:  30 
+|---------------------------------------------------------------------------------------------|
+| Total Memory (MB): 63030 | Free Memory: 28806
+| Total Page/Swap (MB): 8191 | Free Page/Swap: 16
+|---------------------------------------------------------------------------------------------|
+cat: /sys/devices/system/cpu/cpu10/cpufreq/scaling_governor: Device or resource busy
+cat: /sys/devices/system/cpu/cpu11/cpufreq/scaling_governor: Device or resource busy
+2026-11-20T03:59:37Z [45,545ms] [Warning] [gpu.foundation.plugin] CPU performance profile is set to powersave. This profile sets the CPU to the lowest frequency reducing performance.
+[INFO]: Parsing configuration from: isaaclab_tasks.manager_based.locomotion.velocity.config.go2.flat_env_cfg:UnitreeGo2FlatEnvCfg
+[INFO]: Parsing configuration from: isaaclab_tasks.manager_based.locomotion.velocity.config.go2.agents.rsl_rl_ppo_cfg:UnitreeGo2FlatPPORunnerCfg
+[WARNING]: The `policy` configuration is deprecated for rsl-rl >= 4.0.0. Please use, e.g., `actor` and `critic` model configurations instead.
+[WARNING]: The `policy` configuration is used to infer the `actor` model configuration.
+[WARNING]: The `policy` configuration is used to infer the `critic` model configuration.
+[WARNING]: The `distribution_cfg` configuration is now used to specify the output distribution for stochastic policies. Consider updating the configuration to use `distribution_cfg` instead of `stochastic`, `init_noise_std`, `noise_std_type`, and `state_dependent_std` parameters.
+[INFO] Logging experiment in directory: /home/root-daham/isaac-installations/IsaacLab/logs/rsl_rl/unitree_go2_flat
+Exact experiment name requested from command line: 2026-11-20_09-29-49
+
+[36m======================================================================================[0m
+[36m[1m[INFO][IsaacLab]: Logging to file: /tmp/isaaclab/logs/isaaclab_2026-11-20_09-29-49.log[0m
+[36m======================================================================================[0m
+
+[33m09:29:49 [simulation_context.py] WARNING: The `enable_external_forces_every_iteration` parameter in the PhysxCfg is set to False. If you are experiencing noisy velocities, consider enabling this flag. You may need to slightly increase the number of velocity iterations (setting it to 1 or 2 rather than 0), together with this flag, to improve the accuracy of velocity updates.[0m
+[INFO]: Base environment:
+	Environment device    : cuda:0
+	Environment seed      : 42
+	Physics step-size     : 0.005
+	Rendering step-size   : 0.02
+	Environment step-size : 0.02
+[33m09:29:51 [terrain_importer.py] WARNING: Visual material specified for ground plane but no diffuse color found. Using default color: (0.0, 0.0, 0.0)[0m
+[INFO]: Time taken for scene creation : 4.577829 seconds
+[INFO]: Scene manager:  <class InteractiveScene>
+	Number of environments: 4096
+	Environment spacing   : 2.5
+	Source prim name      : /World/envs/env_0
+	Global prim paths     : ['/World/ground']
+	Replicate physics     : True
+[INFO]: Starting the simulation. This may take a few seconds. Please wait...
+[INFO]: Time taken for simulation start : 3.804389 seconds
+[INFO] Command Manager:  <CommandManager> contains 1 active terms.
++------------------------------------------------+
+|              Active Command Terms              |
++-------+---------------+------------------------+
+| Index | Name          |          Type          |
++-------+---------------+------------------------+
+|   0   | base_velocity | UniformVelocityCommand |
++-------+---------------+------------------------+
+
+[INFO] Event Manager:  <EventManager> contains 2 active terms.
++--------------------------------------+
+| Active Event Terms in Mode: 'startup' |
++----------+---------------------------+
+|  Index   | Name                      |
++----------+---------------------------+
+|    0     | physics_material          |
+|    1     | add_base_mass             |
++----------+---------------------------+
++---------------------------------------+
+|  Active Event Terms in Mode: 'reset'  |
++--------+------------------------------+
+| Index  | Name                         |
++--------+------------------------------+
+|   0    | base_external_force_torque   |
+|   1    | reset_base                   |
+|   2    | reset_robot_joints           |
++--------+------------------------------+
+
+[INFO] Recorder Manager:  <RecorderManager> contains 0 active terms.
++---------------------+
+| Active Recorder Terms |
++-----------+---------+
+|   Index   | Name    |
++-----------+---------+
++-----------+---------+
+
+[INFO] Action Manager:  <ActionManager> contains 1 active terms.
++------------------------------------+
+|  Active Action Terms (shape: 12)   |
++--------+-------------+-------------+
+| Index  | Name        |   Dimension |
++--------+-------------+-------------+
+|   0    | joint_pos   |          12 |
++--------+-------------+-------------+
+
+[INFO] Observation Manager: <ObservationManager> contains 1 groups.
++---------------------------------------------------------+
+| Active Observation Terms in Group: 'policy' (shape: (48,)) |
++-----------+---------------------------------+-----------+
+|   Index   | Name                            |   Shape   |
++-----------+---------------------------------+-----------+
+|     0     | base_lin_vel                    |    (3,)   |
+|     1     | base_ang_vel                    |    (3,)   |
+|     2     | projected_gravity               |    (3,)   |
+|     3     | velocity_commands               |    (3,)   |
+|     4     | joint_pos                       |   (12,)   |
+|     5     | joint_vel                       |   (12,)   |
+|     6     | actions                         |   (12,)   |
++-----------+---------------------------------+-----------+
+
+[INFO] Termination Manager:  <TerminationManager> contains 2 active terms.
++---------------------------------+
+|     Active Termination Terms    |
++-------+--------------+----------+
+| Index | Name         | Time Out |
++-------+--------------+----------+
+|   0   | time_out     |   True   |
+|   1   | base_contact |  False   |
++-------+--------------+----------+
+
+[INFO] Reward Manager:  <RewardManager> contains 10 active terms.
++-----------------------------------------+
+|           Active Reward Terms           |
++-------+----------------------+----------+
+| Index | Name                 |   Weight |
++-------+----------------------+----------+
+|   0   | track_lin_vel_xy_exp |      1.5 |
+|   1   | track_ang_vel_z_exp  |     0.75 |
+|   2   | lin_vel_z_l2         |     -2.0 |
+|   3   | ang_vel_xy_l2        |    -0.05 |
+|   4   | dof_torques_l2       |  -0.0002 |
+|   5   | dof_acc_l2           | -2.5e-07 |
+|   6   | action_rate_l2       |    -0.01 |
+|   7   | feet_air_time        |     0.25 |
+|   8   | flat_orientation_l2  |     -2.5 |
+|   9   | dof_pos_limits       |      0.0 |
++-------+----------------------+----------+
+
+[INFO] Curriculum Manager:  <CurriculumManager> contains 0 active terms.
++----------------------+
+| Active Curriculum Terms |
++-----------+----------+
+|   Index   | Name     |
++-----------+----------+
++-----------+----------+
+
+[INFO]: Completed setting up the environment...
+2026-11-20T04:00:08Z [75,991ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_goal.
+2026-11-20T04:00:08Z [75,991ms] [Warning] [omni.physx.fabric.plugin] FabricManager::initializePointInstancer mismatched prototypes on point instancer: /Visuals/Command/velocity_current.
+/home/root-daham/miniconda3/envs/env_isaaclab/lib/python3.11/site-packages/rsl_rl/utils/utils.py:220: UserWarning: The observation configuration dictionary 'obs_groups' is empty and thus likely not configured. Consider configuring the 'obs_groups' dictionary explicitly
+  warnings.warn(
+/home/root-daham/miniconda3/envs/env_isaaclab/lib/python3.11/site-packages/rsl_rl/utils/utils.py:251: UserWarning: The observation configuration dictionary 'obs_groups' does not contain the 'actor' key. As an observation group with the name 'policy' was found, this is assumed to be the appropriate observation. Consider adding the 'actor' key to the 'obs_groups' dictionary for clarity. This behavior will be removed in a future version.
+  warnings.warn(
+/home/root-daham/miniconda3/envs/env_isaaclab/lib/python3.11/site-packages/rsl_rl/utils/utils.py:251: UserWarning: The observation configuration dictionary 'obs_groups' does not contain the 'critic' key. As an observation group with the name 'policy' was found, this is assumed to be the appropriate observation. Consider adding the 'critic' key to the 'obs_groups' dictionary for clarity. This behavior will be removed in a future version.
+  warnings.warn(
+--------------------------------------------------------------------------------
+Resolved observation sets: 
+	 actor :  ['policy']
+	 critic :  ['policy']
+--------------------------------------------------------------------------------
+Actor Model: MLPModel(
+  (obs_normalizer): Identity()
+  (distribution): GaussianDistribution()
+  (mlp): MLP(
+    (0): Linear(in_features=48, out_features=128, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): ELU(alpha=1.0)
+    (4): Linear(in_features=128, out_features=128, bias=True)
+    (5): ELU(alpha=1.0)
+    (6): Linear(in_features=128, out_features=12, bias=True)
+  )
+)
+Critic Model: MLPModel(
+  (obs_normalizer): Identity()
+  (mlp): MLP(
+    (0): Linear(in_features=48, out_features=128, bias=True)
+    (1): ELU(alpha=1.0)
+    (2): Linear(in_features=128, out_features=128, bias=True)
+    (3): ELU(alpha=1.0)
+    (4): Linear(in_features=128, out_features=128, bias=True)
+    (5): ELU(alpha=1.0)
+    (6): Linear(in_features=128, out_features=1, bias=True)
+  )
+)
+Could not find git repository in /home/root-daham/miniconda3/envs/env_isaaclab/lib/python3.11/site-packages/rsl_rl/__init__.py. Skipping.
+Storing git diff for 'IsaacLab' in: /home/root-daham/isaac-installations/IsaacLab/logs/rsl_rl/unitree_go2_flat/2026-11-20_09-29-49_smoke_seed42/git/IsaacLab.diff
+################################################################################
+[1m                            Learning iteration 0/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 98304 
+                       Steps per second: 29154 
+                        Collection time: 2.343s 
+                          Learning time: 1.029s 
+                        Mean value loss: 0.0723
+                    Mean surrogate loss: -0.0035
+                      Mean entropy loss: 17.0099
+                            Mean reward: -0.52
+                    Mean episode length: 13.08
+                        Mean action std: 1.00
+    Episode_Reward/track_lin_vel_xy_exp: 0.0036
+     Episode_Reward/track_ang_vel_z_exp: 0.0028
+            Episode_Reward/lin_vel_z_l2: -0.0127
+           Episode_Reward/ang_vel_xy_l2: -0.0077
+          Episode_Reward/dof_torques_l2: -0.0016
+              Episode_Reward/dof_acc_l2: -0.0049
+          Episode_Reward/action_rate_l2: -0.0029
+           Episode_Reward/feet_air_time: -0.0005
+     Episode_Reward/flat_orientation_l2: -0.0006
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.0183
+    Metrics/base_velocity/error_vel_yaw: 0.0188
+           Episode_Termination/time_out: 0.0107
+       Episode_Termination/base_contact: 0.0000
+--------------------------------------------------------------------------------
+                         Iteration time: 3.37s
+                           Time elapsed: 00:00:03
+                                    ETA: 00:01:04
+
+################################################################################
+[1m                            Learning iteration 1/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 196608 
+                       Steps per second: 274024 
+                        Collection time: 0.318s 
+                          Learning time: 0.040s 
+                        Mean value loss: 0.0243
+                    Mean surrogate loss: -0.0077
+                      Mean entropy loss: 16.8921
+                            Mean reward: -1.12
+                    Mean episode length: 36.54
+                        Mean action std: 0.98
+    Episode_Reward/track_lin_vel_xy_exp: 0.0118
+     Episode_Reward/track_ang_vel_z_exp: 0.0074
+            Episode_Reward/lin_vel_z_l2: -0.0211
+           Episode_Reward/ang_vel_xy_l2: -0.0252
+          Episode_Reward/dof_torques_l2: -0.0050
+              Episode_Reward/dof_acc_l2: -0.0098
+          Episode_Reward/action_rate_l2: -0.0089
+           Episode_Reward/feet_air_time: -0.0019
+     Episode_Reward/flat_orientation_l2: -0.0035
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.0531
+    Metrics/base_velocity/error_vel_yaw: 0.0646
+           Episode_Termination/time_out: 0.0321
+       Episode_Termination/base_contact: 0.0000
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:03
+                                    ETA: 00:00:33
+
+################################################################################
+[1m                            Learning iteration 2/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 294912 
+                       Steps per second: 273980 
+                        Collection time: 0.321s 
+                          Learning time: 0.038s 
+                        Mean value loss: 0.0204
+                    Mean surrogate loss: -0.0082
+                      Mean entropy loss: 16.6907
+                            Mean reward: -1.71
+                    Mean episode length: 58.86
+                        Mean action std: 0.97
+    Episode_Reward/track_lin_vel_xy_exp: 0.0179
+     Episode_Reward/track_ang_vel_z_exp: 0.0117
+            Episode_Reward/lin_vel_z_l2: -0.0234
+           Episode_Reward/ang_vel_xy_l2: -0.0432
+          Episode_Reward/dof_torques_l2: -0.0077
+              Episode_Reward/dof_acc_l2: -0.0158
+          Episode_Reward/action_rate_l2: -0.0148
+           Episode_Reward/feet_air_time: -0.0033
+     Episode_Reward/flat_orientation_l2: -0.0097
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.0956
+    Metrics/base_velocity/error_vel_yaw: 0.1164
+           Episode_Termination/time_out: 0.0558
+       Episode_Termination/base_contact: 0.0008
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:04
+                                    ETA: 00:00:23
+
+################################################################################
+[1m                            Learning iteration 3/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 393216 
+                       Steps per second: 271026 
+                        Collection time: 0.324s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0180
+                    Mean surrogate loss: -0.0060
+                      Mean entropy loss: 16.5339
+                            Mean reward: -2.43
+                    Mean episode length: 87.21
+                        Mean action std: 0.96
+    Episode_Reward/track_lin_vel_xy_exp: 0.0275
+     Episode_Reward/track_ang_vel_z_exp: 0.0165
+            Episode_Reward/lin_vel_z_l2: -0.0261
+           Episode_Reward/ang_vel_xy_l2: -0.0614
+          Episode_Reward/dof_torques_l2: -0.0107
+              Episode_Reward/dof_acc_l2: -0.0198
+          Episode_Reward/action_rate_l2: -0.0203
+           Episode_Reward/feet_air_time: -0.0046
+     Episode_Reward/flat_orientation_l2: -0.0200
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.1259
+    Metrics/base_velocity/error_vel_yaw: 0.1607
+           Episode_Termination/time_out: 0.0767
+       Episode_Termination/base_contact: 0.0049
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:04
+                                    ETA: 00:00:17
+
+################################################################################
+[1m                            Learning iteration 4/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 491520 
+                       Steps per second: 268425 
+                        Collection time: 0.327s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0172
+                    Mean surrogate loss: -0.0055
+                      Mean entropy loss: 16.3839
+                            Mean reward: -2.98
+                    Mean episode length: 113.42
+                        Mean action std: 0.95
+    Episode_Reward/track_lin_vel_xy_exp: 0.0416
+     Episode_Reward/track_ang_vel_z_exp: 0.0243
+            Episode_Reward/lin_vel_z_l2: -0.0298
+           Episode_Reward/ang_vel_xy_l2: -0.0754
+          Episode_Reward/dof_torques_l2: -0.0134
+              Episode_Reward/dof_acc_l2: -0.0269
+          Episode_Reward/action_rate_l2: -0.0256
+           Episode_Reward/feet_air_time: -0.0052
+     Episode_Reward/flat_orientation_l2: -0.0346
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.1537
+    Metrics/base_velocity/error_vel_yaw: 0.1898
+           Episode_Termination/time_out: 0.1019
+       Episode_Termination/base_contact: 0.0128
+--------------------------------------------------------------------------------
+                         Iteration time: 0.37s
+                           Time elapsed: 00:00:04
+                                    ETA: 00:00:14
+
+################################################################################
+[1m                            Learning iteration 5/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 589824 
+                       Steps per second: 266519 
+                        Collection time: 0.331s 
+                          Learning time: 0.038s 
+                        Mean value loss: 0.0146
+                    Mean surrogate loss: -0.0079
+                      Mean entropy loss: 16.2618
+                            Mean reward: -3.50
+                    Mean episode length: 135.86
+                        Mean action std: 0.94
+    Episode_Reward/track_lin_vel_xy_exp: 0.0456
+     Episode_Reward/track_ang_vel_z_exp: 0.0285
+            Episode_Reward/lin_vel_z_l2: -0.0315
+           Episode_Reward/ang_vel_xy_l2: -0.0871
+          Episode_Reward/dof_torques_l2: -0.0160
+              Episode_Reward/dof_acc_l2: -0.0304
+          Episode_Reward/action_rate_l2: -0.0309
+           Episode_Reward/feet_air_time: -0.0063
+     Episode_Reward/flat_orientation_l2: -0.0389
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.1966
+    Metrics/base_velocity/error_vel_yaw: 0.2359
+           Episode_Termination/time_out: 0.1277
+       Episode_Termination/base_contact: 0.0241
+--------------------------------------------------------------------------------
+                         Iteration time: 0.37s
+                           Time elapsed: 00:00:05
+                                    ETA: 00:00:12
+
+################################################################################
+[1m                            Learning iteration 6/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 688128 
+                       Steps per second: 267070 
+                        Collection time: 0.330s 
+                          Learning time: 0.038s 
+                        Mean value loss: 0.0142
+                    Mean surrogate loss: -0.0044
+                      Mean entropy loss: 16.1587
+                            Mean reward: -3.77
+                    Mean episode length: 159.79
+                        Mean action std: 0.93
+    Episode_Reward/track_lin_vel_xy_exp: 0.0439
+     Episode_Reward/track_ang_vel_z_exp: 0.0372
+            Episode_Reward/lin_vel_z_l2: -0.0321
+           Episode_Reward/ang_vel_xy_l2: -0.0981
+          Episode_Reward/dof_torques_l2: -0.0193
+              Episode_Reward/dof_acc_l2: -0.0343
+          Episode_Reward/action_rate_l2: -0.0362
+           Episode_Reward/feet_air_time: -0.0075
+     Episode_Reward/flat_orientation_l2: -0.0378
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.2570
+    Metrics/base_velocity/error_vel_yaw: 0.2576
+           Episode_Termination/time_out: 0.1512
+       Episode_Termination/base_contact: 0.0346
+--------------------------------------------------------------------------------
+                         Iteration time: 0.37s
+                           Time elapsed: 00:00:05
+                                    ETA: 00:00:10
+
+################################################################################
+[1m                            Learning iteration 7/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 786432 
+                       Steps per second: 267663 
+                        Collection time: 0.329s 
+                          Learning time: 0.038s 
+                        Mean value loss: 0.0113
+                    Mean surrogate loss: -0.0060
+                      Mean entropy loss: 16.0405
+                            Mean reward: -4.02
+                    Mean episode length: 182.28
+                        Mean action std: 0.92
+    Episode_Reward/track_lin_vel_xy_exp: 0.0539
+     Episode_Reward/track_ang_vel_z_exp: 0.0387
+            Episode_Reward/lin_vel_z_l2: -0.0317
+           Episode_Reward/ang_vel_xy_l2: -0.1076
+          Episode_Reward/dof_torques_l2: -0.0228
+              Episode_Reward/dof_acc_l2: -0.0376
+          Episode_Reward/action_rate_l2: -0.0413
+           Episode_Reward/feet_air_time: -0.0089
+     Episode_Reward/flat_orientation_l2: -0.0359
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.2736
+    Metrics/base_velocity/error_vel_yaw: 0.3181
+           Episode_Termination/time_out: 0.1791
+       Episode_Termination/base_contact: 0.0432
+--------------------------------------------------------------------------------
+                         Iteration time: 0.37s
+                           Time elapsed: 00:00:05
+                                    ETA: 00:00:08
+
+################################################################################
+[1m                            Learning iteration 8/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 884736 
+                       Steps per second: 270167 
+                        Collection time: 0.326s 
+                          Learning time: 0.038s 
+                        Mean value loss: 0.0090
+                    Mean surrogate loss: -0.0079
+                      Mean entropy loss: 15.9254
+                            Mean reward: -4.10
+                    Mean episode length: 202.20
+                        Mean action std: 0.91
+    Episode_Reward/track_lin_vel_xy_exp: 0.0668
+     Episode_Reward/track_ang_vel_z_exp: 0.0423
+            Episode_Reward/lin_vel_z_l2: -0.0338
+           Episode_Reward/ang_vel_xy_l2: -0.1192
+          Episode_Reward/dof_torques_l2: -0.0255
+              Episode_Reward/dof_acc_l2: -0.0396
+          Episode_Reward/action_rate_l2: -0.0456
+           Episode_Reward/feet_air_time: -0.0100
+     Episode_Reward/flat_orientation_l2: -0.0380
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.3001
+    Metrics/base_velocity/error_vel_yaw: 0.3618
+           Episode_Termination/time_out: 0.2017
+       Episode_Termination/base_contact: 0.0522
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:06
+                                    ETA: 00:00:07
+
+################################################################################
+[1m                            Learning iteration 9/20                             [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 983040 
+                       Steps per second: 272377 
+                        Collection time: 0.323s 
+                          Learning time: 0.038s 
+                        Mean value loss: 0.0075
+                    Mean surrogate loss: -0.0075
+                      Mean entropy loss: 15.7958
+                            Mean reward: -3.96
+                    Mean episode length: 224.73
+                        Mean action std: 0.90
+    Episode_Reward/track_lin_vel_xy_exp: 0.0783
+     Episode_Reward/track_ang_vel_z_exp: 0.0557
+            Episode_Reward/lin_vel_z_l2: -0.0324
+           Episode_Reward/ang_vel_xy_l2: -0.1290
+          Episode_Reward/dof_torques_l2: -0.0274
+              Episode_Reward/dof_acc_l2: -0.0437
+          Episode_Reward/action_rate_l2: -0.0503
+           Episode_Reward/feet_air_time: -0.0109
+     Episode_Reward/flat_orientation_l2: -0.0323
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.3422
+    Metrics/base_velocity/error_vel_yaw: 0.3604
+           Episode_Termination/time_out: 0.2218
+       Episode_Termination/base_contact: 0.0577
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:06
+                                    ETA: 00:00:06
+
+################################################################################
+[1m                            Learning iteration 10/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1081344 
+                       Steps per second: 272212 
+                        Collection time: 0.323s 
+                          Learning time: 0.038s 
+                        Mean value loss: 0.0080
+                    Mean surrogate loss: -0.0079
+                      Mean entropy loss: 15.6677
+                            Mean reward: -4.34
+                    Mean episode length: 247.50
+                        Mean action std: 0.90
+    Episode_Reward/track_lin_vel_xy_exp: 0.0636
+     Episode_Reward/track_ang_vel_z_exp: 0.0546
+            Episode_Reward/lin_vel_z_l2: -0.0329
+           Episode_Reward/ang_vel_xy_l2: -0.1365
+          Episode_Reward/dof_torques_l2: -0.0305
+              Episode_Reward/dof_acc_l2: -0.0461
+          Episode_Reward/action_rate_l2: -0.0547
+           Episode_Reward/feet_air_time: -0.0122
+     Episode_Reward/flat_orientation_l2: -0.0331
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.4000
+    Metrics/base_velocity/error_vel_yaw: 0.4298
+           Episode_Termination/time_out: 0.2422
+       Episode_Termination/base_contact: 0.0614
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:07
+                                    ETA: 00:00:05
+
+################################################################################
+[1m                            Learning iteration 11/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1179648 
+                       Steps per second: 271812 
+                        Collection time: 0.322s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0062
+                    Mean surrogate loss: -0.0067
+                      Mean entropy loss: 15.5680
+                            Mean reward: -4.35
+                    Mean episode length: 271.06
+                        Mean action std: 0.89
+    Episode_Reward/track_lin_vel_xy_exp: 0.0870
+     Episode_Reward/track_ang_vel_z_exp: 0.0665
+            Episode_Reward/lin_vel_z_l2: -0.0318
+           Episode_Reward/ang_vel_xy_l2: -0.1444
+          Episode_Reward/dof_torques_l2: -0.0341
+              Episode_Reward/dof_acc_l2: -0.0494
+          Episode_Reward/action_rate_l2: -0.0604
+           Episode_Reward/feet_air_time: -0.0131
+     Episode_Reward/flat_orientation_l2: -0.0314
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.4220
+    Metrics/base_velocity/error_vel_yaw: 0.4399
+           Episode_Termination/time_out: 0.2641
+       Episode_Termination/base_contact: 0.0631
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:07
+                                    ETA: 00:00:04
+
+################################################################################
+[1m                            Learning iteration 12/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1277952 
+                       Steps per second: 268378 
+                        Collection time: 0.327s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0055
+                    Mean surrogate loss: -0.0085
+                      Mean entropy loss: 15.4417
+                            Mean reward: -4.49
+                    Mean episode length: 297.61
+                        Mean action std: 0.88
+    Episode_Reward/track_lin_vel_xy_exp: 0.0932
+     Episode_Reward/track_ang_vel_z_exp: 0.0707
+            Episode_Reward/lin_vel_z_l2: -0.0347
+           Episode_Reward/ang_vel_xy_l2: -0.1557
+          Episode_Reward/dof_torques_l2: -0.0375
+              Episode_Reward/dof_acc_l2: -0.0521
+          Episode_Reward/action_rate_l2: -0.0647
+           Episode_Reward/feet_air_time: -0.0136
+     Episode_Reward/flat_orientation_l2: -0.0339
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.4583
+    Metrics/base_velocity/error_vel_yaw: 0.4890
+           Episode_Termination/time_out: 0.2852
+       Episode_Termination/base_contact: 0.0646
+--------------------------------------------------------------------------------
+                         Iteration time: 0.37s
+                           Time elapsed: 00:00:07
+                                    ETA: 00:00:04
+
+################################################################################
+[1m                            Learning iteration 13/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1376256 
+                       Steps per second: 270830 
+                        Collection time: 0.324s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0092
+                    Mean surrogate loss: -0.0089
+                      Mean entropy loss: 15.3142
+                            Mean reward: -4.82
+                    Mean episode length: 317.73
+                        Mean action std: 0.87
+    Episode_Reward/track_lin_vel_xy_exp: 0.1122
+     Episode_Reward/track_ang_vel_z_exp: 0.0801
+            Episode_Reward/lin_vel_z_l2: -0.0344
+           Episode_Reward/ang_vel_xy_l2: -0.1682
+          Episode_Reward/dof_torques_l2: -0.0392
+              Episode_Reward/dof_acc_l2: -0.0561
+          Episode_Reward/action_rate_l2: -0.0695
+           Episode_Reward/feet_air_time: -0.0155
+     Episode_Reward/flat_orientation_l2: -0.0329
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.4767
+    Metrics/base_velocity/error_vel_yaw: 0.5104
+           Episode_Termination/time_out: 0.3054
+       Episode_Termination/base_contact: 0.0677
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:08
+                                    ETA: 00:00:03
+
+################################################################################
+[1m                            Learning iteration 14/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1474560 
+                       Steps per second: 268092 
+                        Collection time: 0.327s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0057
+                    Mean surrogate loss: -0.0081
+                      Mean entropy loss: 15.1996
+                            Mean reward: -5.02
+                    Mean episode length: 347.31
+                        Mean action std: 0.86
+    Episode_Reward/track_lin_vel_xy_exp: 0.1141
+     Episode_Reward/track_ang_vel_z_exp: 0.0765
+            Episode_Reward/lin_vel_z_l2: -0.0341
+           Episode_Reward/ang_vel_xy_l2: -0.1781
+          Episode_Reward/dof_torques_l2: -0.0435
+              Episode_Reward/dof_acc_l2: -0.0573
+          Episode_Reward/action_rate_l2: -0.0740
+           Episode_Reward/feet_air_time: -0.0164
+     Episode_Reward/flat_orientation_l2: -0.0315
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.5263
+    Metrics/base_velocity/error_vel_yaw: 0.5924
+           Episode_Termination/time_out: 0.3273
+       Episode_Termination/base_contact: 0.0691
+--------------------------------------------------------------------------------
+                         Iteration time: 0.37s
+                           Time elapsed: 00:00:08
+                                    ETA: 00:00:02
+
+################################################################################
+[1m                            Learning iteration 15/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1572864 
+                       Steps per second: 270621 
+                        Collection time: 0.324s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0044
+                    Mean surrogate loss: -0.0103
+                      Mean entropy loss: 15.0563
+                            Mean reward: -5.28
+                    Mean episode length: 368.97
+                        Mean action std: 0.85
+    Episode_Reward/track_lin_vel_xy_exp: 0.1096
+     Episode_Reward/track_ang_vel_z_exp: 0.0822
+            Episode_Reward/lin_vel_z_l2: -0.0342
+           Episode_Reward/ang_vel_xy_l2: -0.1789
+          Episode_Reward/dof_torques_l2: -0.0472
+              Episode_Reward/dof_acc_l2: -0.0574
+          Episode_Reward/action_rate_l2: -0.0777
+           Episode_Reward/feet_air_time: -0.0170
+     Episode_Reward/flat_orientation_l2: -0.0369
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.5600
+    Metrics/base_velocity/error_vel_yaw: 0.6257
+           Episode_Termination/time_out: 0.3517
+       Episode_Termination/base_contact: 0.0701
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:08
+                                    ETA: 00:00:02
+
+################################################################################
+[1m                            Learning iteration 16/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1671168 
+                       Steps per second: 269968 
+                        Collection time: 0.325s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0041
+                    Mean surrogate loss: -0.0081
+                      Mean entropy loss: 14.9403
+                            Mean reward: -5.55
+                    Mean episode length: 391.17
+                        Mean action std: 0.84
+    Episode_Reward/track_lin_vel_xy_exp: 0.1099
+     Episode_Reward/track_ang_vel_z_exp: 0.0829
+            Episode_Reward/lin_vel_z_l2: -0.0355
+           Episode_Reward/ang_vel_xy_l2: -0.1930
+          Episode_Reward/dof_torques_l2: -0.0500
+              Episode_Reward/dof_acc_l2: -0.0622
+          Episode_Reward/action_rate_l2: -0.0836
+           Episode_Reward/feet_air_time: -0.0185
+     Episode_Reward/flat_orientation_l2: -0.0343
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.6368
+    Metrics/base_velocity/error_vel_yaw: 0.7001
+           Episode_Termination/time_out: 0.3732
+       Episode_Termination/base_contact: 0.0710
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:09
+                                    ETA: 00:00:01
+
+################################################################################
+[1m                            Learning iteration 17/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1769472 
+                       Steps per second: 272808 
+                        Collection time: 0.321s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0039
+                    Mean surrogate loss: -0.0088
+                      Mean entropy loss: 14.8140
+                            Mean reward: -5.55
+                    Mean episode length: 417.29
+                        Mean action std: 0.84
+    Episode_Reward/track_lin_vel_xy_exp: 0.1344
+     Episode_Reward/track_ang_vel_z_exp: 0.0923
+            Episode_Reward/lin_vel_z_l2: -0.0380
+           Episode_Reward/ang_vel_xy_l2: -0.2006
+          Episode_Reward/dof_torques_l2: -0.0520
+              Episode_Reward/dof_acc_l2: -0.0657
+          Episode_Reward/action_rate_l2: -0.0870
+           Episode_Reward/feet_air_time: -0.0187
+     Episode_Reward/flat_orientation_l2: -0.0389
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.6506
+    Metrics/base_velocity/error_vel_yaw: 0.7211
+           Episode_Termination/time_out: 0.3927
+       Episode_Termination/base_contact: 0.0718
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:09
+                                    ETA: 00:00:01
+
+################################################################################
+[1m                            Learning iteration 18/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1867776 
+                       Steps per second: 270462 
+                        Collection time: 0.324s 
+                          Learning time: 0.040s 
+                        Mean value loss: 0.0042
+                    Mean surrogate loss: -0.0089
+                      Mean entropy loss: 14.6885
+                            Mean reward: -5.66
+                    Mean episode length: 441.13
+                        Mean action std: 0.83
+    Episode_Reward/track_lin_vel_xy_exp: 0.1263
+     Episode_Reward/track_ang_vel_z_exp: 0.1016
+            Episode_Reward/lin_vel_z_l2: -0.0373
+           Episode_Reward/ang_vel_xy_l2: -0.2076
+          Episode_Reward/dof_torques_l2: -0.0554
+              Episode_Reward/dof_acc_l2: -0.0675
+          Episode_Reward/action_rate_l2: -0.0907
+           Episode_Reward/feet_air_time: -0.0199
+     Episode_Reward/flat_orientation_l2: -0.0390
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.6851
+    Metrics/base_velocity/error_vel_yaw: 0.7309
+           Episode_Termination/time_out: 0.4144
+       Episode_Termination/base_contact: 0.0722
+--------------------------------------------------------------------------------
+                         Iteration time: 0.36s
+                           Time elapsed: 00:00:09
+                                    ETA: 00:00:00
+
+################################################################################
+[1m                            Learning iteration 19/20                            [0m 
+
+                               Run name: smoke_seed42
+                            Total steps: 1966080 
+                       Steps per second: 266463 
+                        Collection time: 0.329s 
+                          Learning time: 0.039s 
+                        Mean value loss: 0.0036
+                    Mean surrogate loss: -0.0097
+                      Mean entropy loss: 14.5532
+                            Mean reward: -5.52
+                    Mean episode length: 469.30
+                        Mean action std: 0.82
+    Episode_Reward/track_lin_vel_xy_exp: 0.1432
+     Episode_Reward/track_ang_vel_z_exp: 0.1190
+            Episode_Reward/lin_vel_z_l2: -0.0384
+           Episode_Reward/ang_vel_xy_l2: -0.2176
+          Episode_Reward/dof_torques_l2: -0.0559
+              Episode_Reward/dof_acc_l2: -0.0719
+          Episode_Reward/action_rate_l2: -0.0954
+           Episode_Reward/feet_air_time: -0.0214
+     Episode_Reward/flat_orientation_l2: -0.0367
+          Episode_Reward/dof_pos_limits: 0.0000
+     Metrics/base_velocity/error_vel_xy: 0.7247
+    Metrics/base_velocity/error_vel_yaw: 0.7178
+           Episode_Termination/time_out: 0.4359
+       Episode_Termination/base_contact: 0.0723
+--------------------------------------------------------------------------------
+                         Iteration time: 0.37s
+                           Time elapsed: 00:00:10
+                                    ETA: 00:00:00
+
+Training time: 13.43 seconds
+EXIT=0

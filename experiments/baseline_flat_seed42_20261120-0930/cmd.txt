@@ -1,0 +1,1 @@
+cd /home/root-daham/isaac-installations/IsaacLab && PYTHONUNBUFFERED=1 ./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-Velocity-Flat-Unitree-Go2-v0 --headless --seed 42 --run_name baseline_seed42_20261120-0930

@@ -20,3 +20,6 @@ Filled in by /s0-discover, then one line per run.
 
 | Run folder | Task | Seed | Iterations | Wall time | Status | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
+| baseline_flat_seed42_20261120-0930 | Isaac-Velocity-Flat-Unitree-Go2-v0 | 42 | 300 | 2 min | ok | log: logs/rsl_rl/unitree_go2_flat/2026-11-20_09-30-45_baseline_seed42_20261120-0930 |
+| baseline_flat_seed43_20261120-0932 | Isaac-Velocity-Flat-Unitree-Go2-v0 | 43 | 300 | 2 min | ok | log: logs/rsl_rl/unitree_go2_flat/2026-11-20_09-32-48_baseline_seed43_20261120-0932 |
+| baseline_flat_seed44_20261120-0934 | Isaac-Velocity-Flat-Unitree-Go2-v0 | 44 | 300 | 2 min | ok | log: logs/rsl_rl/unitree_go2_flat/2026-11-20_09-34-57_baseline_seed44_20261120-0934 |
