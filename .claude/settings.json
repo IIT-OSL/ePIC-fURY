@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nvidia-smi:*)",
+      "Bash(tmux ls:*)",
+      "Bash(tmux new-window:*)",
+      "Bash(tmux capture-pane:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git describe:*)",
+      "Bash(mkdir:*)",
+      "Bash(du:*)",
+      "Bash(df:*)"
+    ],
+    "ask": [
+      "Bash(sudo:*)",
+      "Bash(apt:*)",
+      "Bash(apt-get:*)",
+      "Bash(pip install:*)",
+      "Bash(conda install:*)",
+      "Bash(conda create:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git tag:*)",
+      "Bash(rm:*)",
+      "Bash(mv:*)",
+      "Bash(docker:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf /*)",
+      "Bash(ssh:*)",
+      "Bash(ping 192.168.123.*)"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+# third-party clones
+external/
+
+# checkpoints / exported policies
+*.pt
+*.pth
+*.onnx
+*.jit
+
+# videos
+*.mp4
+
+# TensorBoard event files
+events.out.tfevents.*
+
+# python / misc
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.claude/settings.local.json
