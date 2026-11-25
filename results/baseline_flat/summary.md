@@ -87,3 +87,18 @@ python tools/tb_to_csv.py <run_folder>
 python tools/plot_curves.py <run_folders...> -o results/baseline_flat --label "Go2 flat baseline (3 seeds)"
 ```
 Exact per-run commands are in each run folder's `cmd.txt` and `play_cmd.txt`.
+
+## Sprint 1 sign-off (2026-11-25)
+
+| Exit item | Status |
+| --- | --- |
+| Versions recorded (`experiments/README.md`) | done |
+| Built-in flat task trained, 3 seeds (42/43/44) | done |
+| env.yaml / agent.yaml saved per run | done |
+| Playback videos recorded from `model_299.pt` | done |
+| Playback videos watched (gait / command tracking) | done, checked by Daham 2026-11-25 |
+| Curves (mean ± std, CSV + PNG) | done |
+| Errors and fixes summary (`experiments/sprint1_summary.md`) | done |
+| 5 papers + duplicate check | skipped for now by Daham's decision (2026-11-25), not part of this sign-off |
+
+Sprint 1 closed. Next: Sprint 2 (`/s2-install-rl-lab`).

@@ -29,5 +29,7 @@ Sprint 0 problems (list_envs.py and `--headless`, missing output when redirected
    non-release tag closer to the current commit.
    Fix: the script now asks git for release tags only (`--match "v*"`), so future runs show `v2.3.2-...`.
 
+Status 2026-11-25: Sprint 1 closed. Daham watched the three playback videos; the 5-paper task was skipped for now by his decision.
+
 No problems with the training itself: all three seeds trained to 300 iterations with stock settings on the first try,
 about 2 minutes each.
