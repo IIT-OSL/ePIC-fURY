@@ -64,3 +64,8 @@ All 4 finished 2026-11-27 18:19. Results: `results/own_flat/summary.md` (final r
 ## Sprint 2: evaluation
 
 `scripts/run_eval.sh` (tmux `epic:eval`, log `experiments/run_eval_20261127-2015.log`) ran `tools/eval.py` on the 4 own runs and the 3 baseline runs, 2026-11-27 20:15–20:25. Each run folder now has `eval.csv`, `eval.log`, `eval_cmd.txt`. Summary: `results/eval_summary.md`.
+
+## Sprint 2: export and video (seed 44, chosen for deployment)
+
+- Export: `url_play.py` on `own_flat_seed44_20261127-1505/url_log/model_2999.pt` wrote `url_log/exported/policy.pt` and `policy.onnx` (command in the run's `play_cmd.txt`, video `play.mp4`, log `play.log`).
+- Clips: `tools/record_clips.py` → `results/video/` (7 clips × 10 s, 9 robots, 0 falls; `rough_cut.mp4` 70 s). MP4s are not in git.

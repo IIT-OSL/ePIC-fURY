@@ -1,0 +1,3 @@
+../../tools/record_clips.py --headless --task Unitree-Go2-Velocity-FullCmd --run ../../experiments/own_flat_seed44_20261127-1505 --out ../../results/video
+# checkpoint: /home/root-daham/ePICfURY/ePIC-fURY/external/unitree_rl_lab/logs/rsl_rl/unitree_go2_velocity_fullcmd/2026-11-27_15-05-51_own_seed44_20261127-1505/model_2999.pt
+# 2026-11-27 20:38

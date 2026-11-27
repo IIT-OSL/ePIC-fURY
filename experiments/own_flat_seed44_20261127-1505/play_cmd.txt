@@ -1,0 +1,1 @@
+cd external/unitree_rl_lab && PYTHONUNBUFFERED=1 python ../../scripts/unitree_rl_lab/url_play.py --headless --task Unitree-Go2-Velocity-FullCmd --checkpoint ../../experiments/own_flat_seed44_20261127-1505/url_log/model_2999.pt --video --video_length 500
