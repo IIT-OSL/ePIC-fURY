@@ -34,6 +34,6 @@ Daham decides; Claude Code proposes and records.
 
 | Needed by | Decision | Options / recommendation |
 | --- | --- | --- |
-| after /s2-train | Is 3,000 iterations enough? | Check the reward has plateaued and tracking at 0.5/1.0 m/s in /s2-eval; if not, decide whether to extend |
+| after /s2-train | Is 3,000 iterations enough? | Training done 2026-11-27: 3-seed mean reward 29.33 at it. 1500, 30.01 at 2000, 30.39 at 3000 (plateau; see results/own_flat/summary.md). Recommendation: enough, unless /s2-eval shows poor tracking at 0.5/1.0 m/s. Daham to confirm after /s2-eval |
 | after /s2-eval | Which run to deploy | From the eval table |
 | before /s3-build-deploy | Deploy machine (Ubuntu laptop vs Go2 onboard computer) | Depends on WSO2's answer |

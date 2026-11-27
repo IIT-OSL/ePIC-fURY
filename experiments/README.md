@@ -54,3 +54,9 @@ Logs under `external/unitree_rl_lab/logs/rsl_rl/unitree_go2_velocity_fullcmd/`. 
 
 | Run folder | Task | Seed | Iterations | Wall time | Status | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
+| own_flat_seed42_20261127-1142 | Unitree-Go2-Velocity-FullCmd | 42 | 3000 | 101 min | ok (headless) | log: external/unitree_rl_lab/logs/rsl_rl/unitree_go2_velocity_fullcmd/2026-11-27_11-42-57_own_seed42_20261127-1142 |
+| own_flat_seed43_20261127-1324 | Unitree-Go2-Velocity-FullCmd | 43 | 3000 | 101 min | ok (headless) | log: external/unitree_rl_lab/logs/rsl_rl/unitree_go2_velocity_fullcmd/2026-11-27_13-24-25_own_seed43_20261127-1324 |
+| own_flat_seed44_20261127-1505 | Unitree-Go2-Velocity-FullCmd | 44 | 3000 | 98 min | ok (headless) | log: external/unitree_rl_lab/logs/rsl_rl/unitree_go2_velocity_fullcmd/2026-11-27_15-05-51_own_seed44_20261127-1505 |
+| own_flat_seed42_repeat_20261127-1644 | Unitree-Go2-Velocity-FullCmd | 42 (repeat) | 3000 | 94 min | ok (headless) | log: external/unitree_rl_lab/logs/rsl_rl/unitree_go2_velocity_fullcmd/2026-11-27_16-44-50_own_seed42_repeat_20261127-1644 |
+
+All 4 finished 2026-11-27 18:19. Results: `results/own_flat/summary.md` (final reward 30.39 ± 0.16 over seeds 42/43/44; the seed-42 repeat is bit-identical to the first seed-42 run).

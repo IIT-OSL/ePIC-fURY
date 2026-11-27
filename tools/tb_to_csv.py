@@ -4,7 +4,7 @@
 Usage:
   python tools/tb_to_csv.py <run_dir_or_logdir> [-o out.csv] [--list]
 
-<run_dir> may be an experiments/<run>/ folder (its isaaclab_log symlink is followed)
+<run_dir> may be an experiments/<run>/ folder (its isaaclab_log or url_log symlink is followed)
 or an Isaac Lab log dir containing events.out.tfevents.* files.
 Default output: <run_dir>/scalars.csv. --list prints the tags and their point counts.
 """
@@ -18,10 +18,10 @@ from tensorboard.backend.event_processing.event_accumulator import EventAccumula
 
 
 def find_event_dir(path):
-    for cand in (os.path.join(path, "isaaclab_log"), path):
+    for cand in (os.path.join(path, "isaaclab_log"), os.path.join(path, "url_log"), path):
         if glob.glob(os.path.join(cand, "events.out.tfevents.*")):
             return cand
-    sys.exit(f"no events.out.tfevents.* in {path} or {path}/isaaclab_log")
+    sys.exit(f"no events.out.tfevents.* in {path}, {path}/isaaclab_log or {path}/url_log")
 
 
 def load_scalars(path):
