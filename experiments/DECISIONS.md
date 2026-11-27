@@ -17,12 +17,12 @@ Daham decides; Claude Code proposes and records.
 | 2026-11-27 | Robot files: Go2 USD only from HF `unitreerobotics/unitree_model` (19 MB), not the URDF route | Daham (same approval) | Matches the code's default spawn, so the only edit is UNITREE_MODEL_DIR; URDF route needs a 334 MB clone and a spawn-code change | external/unitree_model/Go2/ |
 | 2026-11-27 | Set `UNITREE_MODEL_DIR` in external/unitree_rl_lab/.../assets/robots/unitree.py (only edit to an upstream file) | Daham (task step approved) | Required by unitree_rl_lab's install instructions | `git -C external/unitree_rl_lab diff` |
 | 2026-11-27 | unitree_rl_lab runs log to `external/unitree_rl_lab/logs/` (run from its root, its default) and run folders symlink there | Claude Code (convention) | Keeps unitree's relative paths working (deploy tools expect them). Note: `external/` is git-ignored, so never re-clone or delete that folder without first moving logs to experiments/_archive/ | experiments/*/url_log symlinks |
+| 2026-11-27 | Audit of `Unitree-Go2-Velocity` signed off: policy inputs deployable as is, randomisation and rewards unchanged, `/s2-deployable-cfg` not needed | Daham ("approved") | All 45 policy inputs are measurable on the real Go2; base_lin_vel and joint_effort are critic-only | experiments/policy_inputs.md |
 
 ## Open decisions
 
 | Needed by | Decision | Options / recommendation |
 | --- | --- | --- |
 | before /s2-train | Training length for unitree_rl_lab Go2 | Its default `max_iterations` is 50,000; at ~2.05 s/iteration (4096 envs) that is ~28 h per seed, ~4.7 days for 4 runs. Needs a decision after the audit. |
-| after /s2-audit | Sign off inputs, randomisation, rewards | Audit report goes to experiments/policy_inputs.md |
 | after /s2-eval | Which run to deploy | From the eval table |
 | before /s3-build-deploy | Deploy machine (Ubuntu laptop vs Go2 onboard computer) | Depends on WSO2's answer |
