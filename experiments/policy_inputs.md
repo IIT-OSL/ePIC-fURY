@@ -152,7 +152,7 @@ These Kp and Kd values match the built-in Isaac Lab task (25 / 0.5); the torque 
 
 ## 7. Rewards (for the report, not to change)
 
-17 terms are active.
+16 terms are active (confirmed by `Reward Manager ... contains 16 active terms` in train.log; corrected 2026-11-27, an earlier version said 17).
 
 | Term | Function | Weight | What it does |
 | --- | --- | --- | --- |
@@ -219,7 +219,7 @@ So **`/s2-deployable-cfg` should not be needed.**
 | Friction randomisation | fixed 0.8 / 0.6 | 0.3 to 1.2 |
 | Pushes | off | ±0.5 m/s every 5 to 10 s |
 | Command ranges | ±1 / ±1 / ±1, no curriculum | ±1.0 / ±0.4 / ±1.0, with curriculum |
-| Reward terms | 9 active | 17 active |
+| Reward terms | 9 active | 16 active |
 | Network | 128-128-128 | 512-256-128 |
 | Default iterations | 300 | 50,000 |
 | Exports `deploy.yaml` | no | yes |
