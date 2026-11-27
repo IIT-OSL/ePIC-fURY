@@ -29,11 +29,12 @@ Daham decides; Claude Code proposes and records.
 | 2026-11-27 | New task variant **`Unitree-Go2-Velocity-FullCmd`** for all 4 runs: full command limits from the start (vx ±1.0, vy ±0.4, yaw ±1.0), `lin_vel_cmd_levels` curriculum removed; everything else identical to the audited task (verified by diff of env.yaml/agent.yaml/deploy.yaml) | Daham (chose "Full range, no curriculum") | Upstream curriculum stayed at ±0.1 m/s for 824 iterations (15 checks, 0 passed) although mean tracking reward was 1.45 > 1.2 bar: it only judges the ~4 envs that reset exactly on every 1000th step. With 3,000 iterations the policy would never train 0.5/1.0 m/s. Built-in Isaac Lab task learned ±1 m/s without a curriculum in Sprint 1 | scripts/unitree_rl_lab/epic_tasks/, experiments/_smoke_fullcmd_20261127/ |
 | 2026-11-27 | Keep 4,096 envs (not 8,192) | Daham | Task default as audited; VRAM is not the bottleneck (GPU compute ~82%) | scripts/run_own.sh |
 | 2026-11-27 | Seed-42 run with the upstream curriculum (stopped at iteration 824) archived as evidence of the stuck curriculum | Claude Code (rule 7) | Report material ("what went wrong") | experiments/_archive/own_flat_seed42_20261127-1108_curriculum_stuck |
+| 2026-11-27 | Eval settings for `tools/eval.py`: training config of each task with fixed commands, flat plane, env seed 0, noise and friction/mass randomisation kept, 1 s warm-up excluded, fall = base contact or tilt > 0.8 rad for both tasks, one shared push term (±0.5 m/s every 5–10 s) | Claude Code | Same conditions for every policy; the built-in task only terminates on base contact and has no push term, so both get the same definitions | tools/eval.py docstring, each run's eval_cmd.txt |
+| 2026-11-27 | 3,000 iterations is enough; no extended training | Daham | Reward plateau (29.33 at it. 1500, 30.01 at 2000, 30.39 at 3000) and eval: lin. RMSE 0.051 m/s at 0.5, 0.067 m/s at 1.0, 0 falls | results/own_flat/summary.md, results/eval_summary.md |
+| 2026-11-27 | **Deploy seed 44**: `experiments/own_flat_seed44_20261127-1505`, `model_2999.pt` (its `params/deploy.yaml`) | Daham | Best own seed by the eval ranking (0 falls, lowest mean lin. RMSE 0.0480 m/s; yaw and power equal to the others) | results/eval_summary.md |
 
 ## Open decisions
 
 | Needed by | Decision | Options / recommendation |
 | --- | --- | --- |
-| after /s2-train | Is 3,000 iterations enough? | Training done 2026-11-27: 3-seed mean reward 29.33 at it. 1500, 30.01 at 2000, 30.39 at 3000 (plateau; see results/own_flat/summary.md). Recommendation: enough, unless /s2-eval shows poor tracking at 0.5/1.0 m/s. Daham to confirm after /s2-eval |
-| after /s2-eval | Which run to deploy | From the eval table |
 | before /s3-build-deploy | Deploy machine (Ubuntu laptop vs Go2 onboard computer) | Depends on WSO2's answer |

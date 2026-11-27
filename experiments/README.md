@@ -60,3 +60,7 @@ Logs under `external/unitree_rl_lab/logs/rsl_rl/unitree_go2_velocity_fullcmd/`. 
 | own_flat_seed42_repeat_20261127-1644 | Unitree-Go2-Velocity-FullCmd | 42 (repeat) | 3000 | 94 min | ok (headless) | log: external/unitree_rl_lab/logs/rsl_rl/unitree_go2_velocity_fullcmd/2026-11-27_16-44-50_own_seed42_repeat_20261127-1644 |
 
 All 4 finished 2026-11-27 18:19. Results: `results/own_flat/summary.md` (final reward 30.39 ± 0.16 over seeds 42/43/44; the seed-42 repeat is bit-identical to the first seed-42 run).
+
+## Sprint 2: evaluation
+
+`scripts/run_eval.sh` (tmux `epic:eval`, log `experiments/run_eval_20261127-2015.log`) ran `tools/eval.py` on the 4 own runs and the 3 baseline runs, 2026-11-27 20:15–20:25. Each run folder now has `eval.csv`, `eval.log`, `eval_cmd.txt`. Summary: `results/eval_summary.md`.

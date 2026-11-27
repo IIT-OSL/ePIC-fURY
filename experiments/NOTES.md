@@ -137,3 +137,11 @@ One entry per problem. Newest at the bottom.
   approved by Daham. Resolved env.yaml/agent.yaml/deploy.yaml diffed against the audited task: only those two settings differ.
   5-iteration smoke test `experiments/_smoke_fullcmd_20261127/` ok. Stuck run archived: `_archive/own_flat_seed42_20261127-1108_curriculum_stuck`.
   All 4 runs restarted at 11:42 (`run_own_20261127-1142.log`).
+
+## 2026-11-27: eval.py crashed after the first condition (inference tensor)
+- What I was doing: first test of `tools/eval.py` on own_flat_seed42.
+- Error (exact line): `RuntimeError: Inplace update to inference tensor outside InferenceMode is not allowed.`
+- Cause: the policy steps ran inside `torch.inference_mode()`, but `env.reset()` for the next condition ran outside it,
+  and the reset writes in place into buffers created during inference mode.
+- Fix: run `env.reset()` inside `torch.inference_mode()` as well. Re-run gave identical numbers for the first condition.
+

@@ -1,0 +1,3 @@
+/home/root-daham/ePICfURY/ePIC-fURY/tools/eval.py --headless --task Isaac-Velocity-Flat-Unitree-Go2-v0 --run /home/root-daham/ePICfURY/ePIC-fURY/experiments/baseline_flat_seed44_20261120-0934
+# checkpoint: /home/root-daham/isaac-installations/IsaacLab/logs/rsl_rl/unitree_go2_flat/2026-11-20_09-34-57_baseline_seed44_20261120-0934/model_299.pt
+# 2026-11-27 20:25

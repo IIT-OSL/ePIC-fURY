@@ -16,7 +16,7 @@ The goal of this phase is to show that a Go2 walking policy can be **trained, ev
 | --- | --- | --- | --- |
 | 0 | 19–20 Nov | Environment setup, version record, project rules | done |
 | 1 | 19–22 Nov | Built-in Isaac Lab Go2 flat baseline, 3 seeds, curves, playback | done: final reward 33.87 ± 0.49, episode length 996.9 ± 5.4 / 1000 |
-| 2 | 23–29 Nov | Own deployable policy in unitree_rl_lab: install, input audit, 4 training runs, eval, video | in progress: install, audit and 4 training runs done (final reward 30.39 ± 0.16, episode length 998.5 / 1000, repeat run bit-identical); eval and video next |
+| 2 | 23–29 Nov | Own deployable policy in unitree_rl_lab: install, input audit, 4 training runs, eval, video | in progress: install, audit, 4 training runs (final reward 30.39 ± 0.16, repeat run bit-identical) and eval done (0 falls on all 7 conditions, velocity RMSE ≤ 0.08 m/s); seed 44 chosen for deployment; video and Medium material next |
 | 3 | 30 Nov – 6 Dec | Sim-to-real checklist, golden test, MuJoCo sim-to-sim, WSO2 robot test (3 Dec, backup 8 Dec) | not started |
 | 4 | 7–15 Dec | Fixes, second robot session, results, report, Medium tutorial, presentation | not started |
 
@@ -40,10 +40,10 @@ Full version table: [`experiments/README.md`](experiments/README.md).
 | --- | --- |
 | [`experiments/`](experiments/) | **One folder per training run.** Each has `cmd.txt` (exact command), `git.txt` (code versions), `train.log`, `env.yaml` / `agent.yaml` (full configuration) and, for unitree_rl_lab runs, `deploy.yaml`, plus a link to the checkpoints. Also holds the project logs listed below this table. |
 | [`experiments/_archive/`](experiments/_archive/) | Runs that were stopped or replaced. Nothing is ever deleted; stopped runs are moved here with the reason in the folder name. |
-| [`results/`](results/) | Figures and tables for the report. Every figure is a grayscale 1600×900 PNG with the CSV that made it. `baseline_flat/` holds Sprint 1; `own_flat/` holds the Sprint 2 training curves and the reproducibility check. |
-| [`scripts/`](scripts/) | Launch scripts. `run_baseline.sh`: Sprint 1 training, 3 seeds. `run_play.sh`: playback video and policy export. `run_own.sh`: Sprint 2 training, 4 runs. |
+| [`results/`](results/) | Figures and tables for the report. Every figure is a grayscale 1600×900 PNG with the CSV that made it. `baseline_flat/` holds Sprint 1; `own_flat/` holds the Sprint 2 training curves and the reproducibility check; `eval_summary.md` the fixed-protocol eval of both tasks. |
+| [`scripts/`](scripts/) | Launch scripts. `run_baseline.sh`: Sprint 1 training, 3 seeds. `run_play.sh`: playback video and policy export. `run_own.sh`: Sprint 2 training, 4 runs. `run_eval.sh`: eval of all own and baseline runs. |
 | [`scripts/unitree_rl_lab/`](scripts/unitree_rl_lab/) | Our wrappers around unitree_rl_lab's train and play scripts (`url_train.py`, `url_play.py`), which make them work with rsl-rl 5 and Isaac Lab 2.3.2, and [`epic_tasks/`](scripts/unitree_rl_lab/epic_tasks/), our task variants. |
-| [`tools/`](tools/) | Python utilities. `tb_to_csv.py`: TensorBoard to CSV. `plot_curves.py`: mean ± std curves across seeds (`--preset url` for unitree_rl_lab runs). `plot_repro.py`: overlay of two runs of the same seed. `watch_ckpt.py`: live viewer of the newest checkpoint. `x_fit_window.py`: display helper. Later: `eval.py`, `check_deploy_cfg.py`. |
+| [`tools/`](tools/) | Python utilities. `tb_to_csv.py`: TensorBoard to CSV. `plot_curves.py`: mean ± std curves across seeds (`--preset url` for unitree_rl_lab runs). `plot_repro.py`: overlay of two runs of the same seed. `eval.py`: fixed eval protocol for one checkpoint. `eval_summary.py`: eval table across seeds. `watch_ckpt.py`: live viewer of the newest checkpoint. `x_fit_window.py`: display helper. Later: `check_deploy_cfg.py`. |
 | `external/` | Third-party clones (unitree_rl_lab, Go2 robot model; later unitree_mujoco and the deploy SDK). **Not in git**: re-create it with the steps in `CLAUDE.md`. Training logs and checkpoints for unitree_rl_lab runs live in `external/unitree_rl_lab/logs/`. |
 | [`papers/`](papers/) | Literature work. `existing/` holds the paper lists the team has already covered; `my_titles.txt` is for new papers (duplicate check). |
 | [`robot_logs/`](robot_logs/) | CSV logs copied back from the WSO2 robot sessions (Sprint 3–4). |
@@ -95,6 +95,8 @@ python tools/plot_curves.py <run_folders...> -o results/baseline_flat
 ITERS=3000 scripts/run_own.sh           # seeds 42 43 44, then 42 again, headless
 python tools/plot_curves.py experiments/own_flat_seed4{2,3,4}_2026* -o results/own_flat --preset url
 python tools/plot_repro.py <seed42 run> <seed42 repeat run> -o results/own_flat/repro_seed42.png
+scripts/run_eval.sh                      # fixed eval protocol on every own and baseline run
+python tools/eval_summary.py --own <own runs> --baseline <baseline runs> -o results/eval_summary.md
 ```
 
 Single run, by hand:
