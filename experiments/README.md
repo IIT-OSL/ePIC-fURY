@@ -68,4 +68,4 @@ All 4 finished 2026-11-27 18:19. Results: `results/own_flat/summary.md` (final r
 ## Sprint 2: export and video (seed 44, chosen for deployment)
 
 - Export: `url_play.py` on `own_flat_seed44_20261127-1505/url_log/model_2999.pt` wrote `url_log/exported/policy.pt` and `policy.onnx` (command in the run's `play_cmd.txt`, video `play.mp4`, log `play.log`).
-- Clips: `tools/record_clips.py` → `results/video/` (7 clips × 10 s, 9 robots, 0 falls; `rough_cut.mp4` 70 s). MP4s are not in git.
+- Clips: `tools/record_clips.py` → `results/video/` (7 clips × 10 s, 9 robots, 0 falls; `rough_cut.mp4` 70 s). The 7 clips and seed 44 `play.mp4` are in git (force-added past the `*.mp4` ignore rule, one commit each); `rough_cut.mp4` (153 MB) is local only.
