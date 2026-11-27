@@ -1,0 +1,1 @@
+cd /home/root-daham/ePICfURY/ePIC-fURY/external/unitree_rl_lab && PYTHONUNBUFFERED=1 python /home/root-daham/ePICfURY/ePIC-fURY/scripts/unitree_rl_lab/url_train.py --headless --task Unitree-Go2-Velocity --max_iterations 10 --seed 42 --run_name smoke_url

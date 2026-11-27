@@ -34,7 +34,18 @@ independently with Isaac Lab + RSL-RL. Research novelty does not matter for this
 - rsl_rl version: rsl-rl-lib 5.0.1
 - Python: 3.11.15 (env `env_isaaclab`). System python3 is 3.14.4, do not use it for Isaac Lab.
 - Other: torch 2.7.0+cu128, warp-lang 1.15.0. CPU i9-14900K, 62 GB RAM, swap 8 GB. Ubuntu 26.04, kernel 7.0.0-38.
-- unitree_rl_lab path + env: TBD (Sprint 2)
+- unitree_rl_lab path + env: `external/unitree_rl_lab` (commit `4960b84`, package 0.2.1, pip `-e` into `env_isaaclab`, same env as Isaac Lab).
+  Robot files: Go2 USD only, `external/unitree_model/Go2/usd/go2.usd` (from HF dataset `unitreerobotics/unitree_model`);
+  `UNITREE_MODEL_DIR` set in its `assets/robots/unitree.py` (only local edit, approved 2026-11-27).
+  Task: train and play both `Unitree-Go2-Velocity` (play uses `RobotPlayEnvCfg`).
+  Run with OUR wrappers (rsl-rl 5 fixes), from the unitree_rl_lab root so logs go to `external/unitree_rl_lab/logs/rsl_rl/unitree_go2_velocity/`:
+  ```
+  source /home/root-daham/miniconda3/etc/profile.d/conda.sh && conda activate env_isaaclab
+  cd /home/root-daham/ePICfURY/ePIC-fURY/external/unitree_rl_lab
+  PYTHONUNBUFFERED=1 python ../../scripts/unitree_rl_lab/url_train.py --headless --task Unitree-Go2-Velocity --seed 42 [--max_iterations N]
+  PYTHONUNBUFFERED=1 python ../../scripts/unitree_rl_lab/url_play.py --headless --task Unitree-Go2-Velocity --checkpoint <model.pt> --video --video_length 500
+  ```
+  Do NOT use unitree's own `scripts/rsl_rl/train.py|play.py` (not compatible with rsl-rl 5, see NOTES.md 2026-11-27) or `./unitree_rl_lab.sh -i`. Each train run writes `params/deploy.yaml`.
 - unitree_mujoco / deploy build path: TBD (Sprint 3)
 
 ## Layout

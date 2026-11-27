@@ -1,0 +1,11 @@
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                                                       Available Environments in Unitree RL Lab                                                       |
++--------+---------------------------------------+---------------------------------+-------------------------------------------------------------------+
+| S. No. | Task Name                             | Entry Point                     | Config                                                            |
++--------+---------------------------------------+---------------------------------+-------------------------------------------------------------------+
+|   1    | Unitree-G1-29dof-Velocity             | isaaclab.envs:ManagerBasedRLEnv | locomotion.robots.g1.29dof.velocity_env_cfg:RobotEnvCfg           |
+|   2    | Unitree-Go2-Velocity                  | isaaclab.envs:ManagerBasedRLEnv | locomotion.robots.go2.velocity_env_cfg:RobotEnvCfg                |
+|   3    | Unitree-H1-Velocity                   | isaaclab.envs:ManagerBasedRLEnv | locomotion.robots.h1.velocity_env_cfg:RobotEnvCfg                 |
+|   4    | Unitree-G1-29dof-Mimic-Dance-102      | isaaclab.envs:ManagerBasedRLEnv | mimic.robots.g1_29dof.dance_102.tracking_env_cfg:RobotEnvCfg      |
+|   5    | Unitree-G1-29dof-Mimic-Gangnanm-Style | isaaclab.envs:ManagerBasedRLEnv | mimic.robots.g1_29dof.gangnanm_style.tracking_env_cfg:RobotEnvCfg |
++--------+---------------------------------------+---------------------------------+-------------------------------------------------------------------+

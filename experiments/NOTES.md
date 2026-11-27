@@ -50,3 +50,26 @@ One entry per problem. Newest at the bottom.
 - Cause: `git describe --tags` picks the nearest tag of any name; Isaac Lab has a non-release tag `training-checkpoints-develop` closer to HEAD.
 - Fix: none needed for the recorded runs (same commit 858234d06e, which is what matters). run_baseline.sh now uses
   `git describe --tags --match "v*"` so future git.txt files show the release tag.
+
+## 2026-11-27: unitree_rl_lab scripts are written for an older rsl-rl
+- What I was doing: Sprint 2 install, reading unitree_rl_lab (commit 4960b84) before training.
+- Error (exact line): none run yet; found by reading the code. Its `BasePPORunnerCfg` uses the legacy `policy=RslRlPpoActorCriticCfg(...)`,
+  and its `scripts/rsl_rl/train.py` builds `OnPolicyRunner` without converting it. rsl-rl 5.0.1 reads `cfg["actor"]` (ppo.py:477), so it would fail.
+  Its `play.py` exports via `runner.alg.policy` / `runner.alg.actor_critic`, which do not exist in rsl-rl >= 4.
+- Cause: unitree_rl_lab targets Isaac Lab 2.3.0 with rsl-rl 2.x/3.x; we have Isaac Lab 2.3.2 with rsl-rl-lib 5.0.1.
+- Fix: our own copies `scripts/unitree_rl_lab/url_train.py` and `url_play.py` that call Isaac Lab's `handle_deprecated_rsl_rl_cfg`
+  (and `handle_deprecated_rsl_rl_checkpoint` in play) and export with `runner.export_policy_to_jit/onnx`. Upstream files untouched.
+  Verified: 10-iteration train and play/export both exit 0 (`experiments/_smoke_url_go2_20261127/`).
+
+## 2026-11-27: url_play.py import error (pretrained_checkpoint moved)
+- What I was doing: play/export test of the smoke checkpoint with the new play wrapper.
+- Error (exact line): `ModuleNotFoundError: No module named 'isaaclab.utils.pretrained_checkpoint'`
+- Cause: in Isaac Lab 2.3.2 the module lives in `isaaclab_rl.utils.pretrained_checkpoint` (unitree_rl_lab was written for 2.3.0).
+- Fix: import from `isaaclab_rl.utils.pretrained_checkpoint` in `scripts/unitree_rl_lab/url_play.py`. Failed log kept as `play_fail1.log`.
+
+## 2026-11-27: unitree_rl_lab.sh -i not used
+- What I was doing: installing unitree_rl_lab.
+- Error (exact line): none (not run). `git-lfs` is not installed, `ISAACLAB_PATH` is unset, and the script overwrites
+  `$CONDA_PREFIX/etc/conda/activate.d/setenv.sh` and runs `activate-global-python-argcomplete` (changes the user's shell setup).
+- Fix: installed with `pip install -e external/unitree_rl_lab/source/unitree_rl_lab` only (pulled in `argcomplete 3.8.0`, the package's one
+  dependency). Go2 USD downloaded with `huggingface_hub.snapshot_download(..., allow_patterns=["Go2/*"])` (19 MB), no git-lfs needed.
