@@ -2,6 +2,12 @@
 
 Unitree Go2 Edu PPO locomotion with Isaac Lab and RSL-RL, first half of the IIT internship (deadline 15 Dec 2026).
 
+<p align="center">
+  <img src="results/video/go2_demo.gif" alt="Go2 policy in Isaac Lab: stand, walk 0.5 and 1.0 m/s, backward, sidestep, turn, pushes" width="720">
+</p>
+<p align="center"><em>Sprint 2 policy (seed 44) in Isaac Lab, 2 s per command: stand · walk 0.5 m/s · walk 1.0 m/s · backward · sidestep · turn · pushes.
+Full 10 s clips: <a href="results/video/01_stand.mp4">stand</a> · <a href="results/video/02_walk_0.5.mp4">walk 0.5</a> · <a href="results/video/03_walk_1.0.mp4">walk 1.0</a> · <a href="results/video/04_backward_-0.5.mp4">backward</a> · <a href="results/video/05_sidestep_0.3.mp4">sidestep</a> · <a href="results/video/06_turn_0.8.mp4">turn</a> · <a href="results/video/07_walk_0.5_push.mp4">pushes</a></em></p>
+
 The goal of this phase is to show that a Go2 walking policy can be **trained, evaluated, reproduced and deployed** independently. Research novelty is not the goal yet; this is the groundwork for the later TAPS research problem.
 
 1. Reproduce the built-in Isaac Lab Go2 flat-ground velocity task (3 seeds).
