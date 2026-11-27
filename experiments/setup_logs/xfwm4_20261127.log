@@ -1,0 +1,6 @@
+WARNING: Glycin running without sandbox.
+
+(xfwm4:617816): xfwm4-WARNING **: 10:54:37.062: Failed to connect to session manager: Failed to connect to the session manager: SESSION_MANAGER environment variable not defined
+WARNING: Glycin running without sandbox.
+
+(xfwm4:622891): xfwm4-WARNING **: 11:13:10.385: Failed to connect to session manager: Failed to connect to the session manager: SESSION_MANAGER environment variable not defined
