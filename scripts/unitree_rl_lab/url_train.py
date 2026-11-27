@@ -1,6 +1,7 @@
 # ePIC fURY wrapper: copy of unitree_rl_lab/scripts/rsl_rl/train.py (commit 4960b84) with rsl-rl 5.x fixes.
 # Changes (search "ePIC fURY"): sys.path points at unitree_rl_lab's scripts so cli_args/list_envs import;
 # handle_deprecated_rsl_rl_cfg() is called before the runner is built (as in Isaac Lab 2.3.2 train.py).
+# Also imports epic_tasks (our task variants) before the --task choices are built.
 # Nothing else changed: same task configs, rewards, gains, deploy.yaml export.
 import os as _os, sys as _sys
 _URL_SCRIPTS = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "external", "unitree_rl_lab", "scripts")
@@ -23,6 +24,8 @@ sys.path.insert(0, _URL_SCRIPTS)  # ePIC fURY: was pathlib.Path(__file__).parent
 from list_envs import import_packages  # noqa: F401
 
 sys.path.pop(0)
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))  # ePIC fURY: for epic_tasks
+import epic_tasks  # noqa: E402,F401  ePIC fURY: registers Unitree-Go2-Velocity-FullCmd
 
 tasks = []
 for task_spec in gym.registry.values():

@@ -27,11 +27,11 @@ from isaaclab.app import AppLauncher  # noqa: E402
 import cli_args  # noqa: E402  isort: skip
 
 parser = argparse.ArgumentParser(description="Live viewer of the newest training checkpoint (view only).")
-parser.add_argument("--task", default="Unitree-Go2-Velocity")
+parser.add_argument("--task", default="Unitree-Go2-Velocity-FullCmd")
 parser.add_argument("--num_envs", type=int, default=16)
 parser.add_argument(
     "--log_root",
-    default=os.path.abspath(os.path.join(_URL, "logs", "rsl_rl", "unitree_go2_velocity")),
+    default=os.path.abspath(os.path.join(_URL, "logs", "rsl_rl", "unitree_go2_velocity_fullcmd")),
     help="folder holding the training run folders; the newest run is followed",
 )
 parser.add_argument("--run_glob", default="*_own_seed*", help="which run folders to follow")
@@ -52,6 +52,9 @@ import isaaclab_tasks  # noqa: E402,F401
 from isaaclab_rl.rsl_rl import RslRlVecEnvWrapper, handle_deprecated_rsl_rl_cfg  # noqa: E402
 
 import unitree_rl_lab.tasks  # noqa: E402,F401
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "scripts", "unitree_rl_lab"))
+import epic_tasks  # noqa: E402,F401
 from unitree_rl_lab.utils.parser_cfg import parse_env_cfg  # noqa: E402
 
 

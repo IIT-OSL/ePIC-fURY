@@ -26,11 +26,14 @@ Daham decides; Claude Code proposes and records.
 | 2026-11-27 | Viewer shows 16 robots on a plain floor spaced 2.5 m apart (viewer-only play-config overrides: plane terrain, no terrain/command curricula) | Claude Code (Daham approved "show checkpoint playback", spread out as proposed) | Unitree's play config stacks 32 robots on 2 terrain tiles. Training config untouched | tools/watch_ckpt.py docstring |
 | 2026-11-27 | Partial seed-42 GUI run (stopped at iteration 184) and an accidental 51-iteration start archived, not deleted | Claude Code (rule 7) | Keep every log; neither counts as one of the 4 runs | experiments/_archive/, README runs table |
 | 2026-11-27 | Checkpoint viewer, Xwayland :2 and xfwm4 closed; training stays fully headless, no GUI for the rest of the 4 runs | Daham ("close the gui and run all headless") | Full training speed (~2.05 s/iteration); progress is checked from the logs and the curves afterwards | tmux `epic` now has only window `own` |
+| 2026-11-27 | New task variant **`Unitree-Go2-Velocity-FullCmd`** for all 4 runs: full command limits from the start (vx ±1.0, vy ±0.4, yaw ±1.0), `lin_vel_cmd_levels` curriculum removed; everything else identical to the audited task (verified by diff of env.yaml/agent.yaml/deploy.yaml) | Daham (chose "Full range, no curriculum") | Upstream curriculum stayed at ±0.1 m/s for 824 iterations (15 checks, 0 passed) although mean tracking reward was 1.45 > 1.2 bar: it only judges the ~4 envs that reset exactly on every 1000th step. With 3,000 iterations the policy would never train 0.5/1.0 m/s. Built-in Isaac Lab task learned ±1 m/s without a curriculum in Sprint 1 | scripts/unitree_rl_lab/epic_tasks/, experiments/_smoke_fullcmd_20261127/ |
+| 2026-11-27 | Keep 4,096 envs (not 8,192) | Daham | Task default as audited; VRAM is not the bottleneck (GPU compute ~82%) | scripts/run_own.sh |
+| 2026-11-27 | Seed-42 run with the upstream curriculum (stopped at iteration 824) archived as evidence of the stuck curriculum | Claude Code (rule 7) | Report material ("what went wrong") | experiments/_archive/own_flat_seed42_20261127-1108_curriculum_stuck |
 
 ## Open decisions
 
 | Needed by | Decision | Options / recommendation |
 | --- | --- | --- |
-| after /s2-train | Is 3,000 iterations enough? | Check that `Curriculum/lin_vel_cmd_levels` reached 1.0 m/s and the reward plateaued; if not, decide whether to extend |
+| after /s2-train | Is 3,000 iterations enough? | Check the reward has plateaued and tracking at 0.5/1.0 m/s in /s2-eval; if not, decide whether to extend |
 | after /s2-eval | Which run to deploy | From the eval table |
 | before /s3-build-deploy | Deploy machine (Ubuntu laptop vs Go2 onboard computer) | Depends on WSO2's answer |

@@ -10,11 +10,11 @@ set -uo pipefail
 WORK=/home/root-daham/ePICfURY/ePIC-fURY
 URL=$WORK/external/unitree_rl_lab
 ISAACLAB=/home/root-daham/isaac-installations/IsaacLab
-TASK=Unitree-Go2-Velocity
+TASK=Unitree-Go2-Velocity-FullCmd   # full command range, no command curriculum (Daham 2026-11-27); see scripts/unitree_rl_lab/epic_tasks
 ITERS=${ITERS:-3000}
 GUI_FIRST=${GUI_FIRST:-0}
 GUI_DISPLAY=${GUI_DISPLAY:-:2}
-LOG_ROOT=$URL/logs/rsl_rl/unitree_go2_velocity
+LOG_ROOT=$URL/logs/rsl_rl/unitree_go2_velocity_fullcmd
 README=$WORK/experiments/README.md
 SEEDS=("$@"); [ ${#SEEDS[@]} -eq 0 ] && SEEDS=(42 43 44 42)
 
@@ -76,7 +76,7 @@ for SEED in "${SEEDS[@]}"; do
     [ -n "$LAST" ] && DONE=$((LAST + 1))
   fi
   STATUS=ok; [ "$DONE" != "$ITERS" ] && STATUS="incomplete ($DONE/$ITERS)"; [ "$RC" -ne 0 ] && STATUS="failed (exit $RC)"; [ -z "$LOGDIR" ] && STATUS="$STATUS, no log dir"
-  echo "| $(basename "$RUN") | $TASK (unitree_rl_lab) | $SEED${VARIANT:+ (repeat)} | $DONE | ${WALL} min | $STATUS ($MODE) | log: ${LOGDIR#$WORK/} |" >> "$README"
+  echo "| $(basename "$RUN") | $TASK | $SEED${VARIANT:+ (repeat)} | $DONE | ${WALL} min | $STATUS ($MODE) | log: ${LOGDIR#$WORK/} |" >> "$README"
   echo "[run_own] $(date '+%F %T') seed $SEED$VARIANT done: $STATUS, ${WALL} min, iterations $DONE"
 done
 echo "[run_own] all runs finished"

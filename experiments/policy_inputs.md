@@ -233,3 +233,17 @@ So **`/s2-deployable-cfg` should not be needed.**
 - [x] Rewards (section 7) recorded for the report, unchanged
 
 Signed: Daham ("approved", in session) Date: 2026-11-27
+
+---
+
+## Addendum 2026-11-27: training uses `Unitree-Go2-Velocity-FullCmd`
+
+Approved by Daham after the audit: the 4 own-policy runs train `Unitree-Go2-Velocity-FullCmd` (`scripts/unitree_rl_lab/epic_tasks/`).
+It is this audited task with **one** change:
+- commands start at the full limit ranges (vx ±1.0, vy ±0.4, yaw ±1.0 rad/s)
+- the `lin_vel_cmd_levels` curriculum is removed
+
+Reason: the curriculum stayed at ±0.1 m/s for 824 iterations (see NOTES.md).
+
+Verified by diffing the resolved `env.yaml`, `agent.yaml` and `deploy.yaml` against the audited smoke run. Only `curriculum.lin_vel_cmd_levels` and `commands.base_velocity.ranges` differ; `deploy.yaml` is identical. Sections 1–5 and 7–8 above are unchanged. In section 6, the "Command curriculum" bullet no longer applies.
+

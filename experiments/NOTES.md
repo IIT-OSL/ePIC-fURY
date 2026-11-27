@@ -124,3 +124,16 @@ One entry per problem. Newest at the bottom.
 - Cause: the Xwayland process ended cleanly at ~11:11 (socket /tmp/.X11-unix/X2 gone, no error in its log), which is what happens when its outer
   window is closed; xfwm4 exited with it. Headless training was not affected.
 - Fix: restarted Xwayland (`epic:display`), xfwm4 (`epic:wm`) and the viewer (`epic:watch`). Closing the Xwayland window again only stops the viewer.
+
+## 2026-11-27: unitree_rl_lab command curriculum never widened (stuck at ±0.1 m/s)
+- What I was doing: seed-42 own-policy run on `Unitree-Go2-Velocity`, 3,000 iterations planned.
+- Error (exact line): none; `Curriculum/lin_vel_cmd_levels: 0.1000` for all 824 iterations (15 checks), while
+  `Episode_Reward/track_lin_vel_xy: 1.4515` was already above the widening threshold (0.8 × weight 1.5 = 1.2) since about iteration 100.
+- Cause: `lin_vel_cmd_levels` (unitree_rl_lab `tasks/locomotion/mdp/curriculums.py`) only runs when `common_step_counter % max_episode_length == 0`,
+  and averages the tracking reward over just the envs that reset on that exact step, about 4 of 4,096. After the randomised first episode
+  these are mostly the same envs each time, and their friction/mass are fixed at startup, so a few unlucky envs keep the mean under 1.2.
+  Unitree trains 50,000 iterations, where this matters less; with 3,000 the policy would only ever train speeds up to 0.1 m/s.
+- Fix: new task `Unitree-Go2-Velocity-FullCmd` (our repo, `scripts/unitree_rl_lab/epic_tasks/`), with full command limits from the start and the curriculum removed,
+  approved by Daham. Resolved env.yaml/agent.yaml/deploy.yaml diffed against the audited task: only those two settings differ.
+  5-iteration smoke test `experiments/_smoke_fullcmd_20261127/` ok. Stuck run archived: `_archive/own_flat_seed42_20261127-1108_curriculum_stuck`.
+  All 4 runs restarted at 11:42 (`run_own_20261127-1142.log`).

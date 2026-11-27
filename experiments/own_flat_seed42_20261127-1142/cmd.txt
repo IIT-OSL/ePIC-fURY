@@ -1,0 +1,1 @@
+cd /home/root-daham/ePICfURY/ePIC-fURY/external/unitree_rl_lab && PYTHONUNBUFFERED=1 python /home/root-daham/ePICfURY/ePIC-fURY/scripts/unitree_rl_lab/url_train.py --headless --task Unitree-Go2-Velocity-FullCmd --seed 42 --max_iterations 3000 --run_name own_seed42_20261127-1142

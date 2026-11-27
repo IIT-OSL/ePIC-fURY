@@ -2,6 +2,7 @@
 # Changes (search "ePIC fURY"): sys.path points at unitree_rl_lab's scripts so cli_args/list_envs import;
 # get_published_pretrained_checkpoint is imported from isaaclab_rl.utils (moved in Isaac Lab 2.3.2);
 # handle_deprecated_rsl_rl_cfg/_checkpoint() are applied and the policy is exported with runner.export_policy_to_jit/onnx for rsl-rl >= 4 (as in Isaac Lab 2.3.2 play.py).
+# Also imports epic_tasks (our task variants).
 # Nothing else changed: same task configs, rewards, gains, deploy.yaml export.
 import os as _os, sys as _sys
 _URL_SCRIPTS = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "..", "external", "unitree_rl_lab", "scripts")
@@ -71,6 +72,8 @@ from packaging.version import parse as _vparse  # ePIC fURY
 from isaaclab_tasks.utils import get_checkpoint_path
 
 import unitree_rl_lab.tasks  # noqa: F401
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))  # ePIC fURY: for epic_tasks
+import epic_tasks  # noqa: E402,F401  ePIC fURY: registers Unitree-Go2-Velocity-FullCmd
 from unitree_rl_lab.utils.parser_cfg import parse_env_cfg
 
 
